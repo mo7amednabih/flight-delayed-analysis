@@ -1,0 +1,3101 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20242.24.0807.0327                               -->
+<workbook original-version='18.1' source-build='2024.2.2 (20242.24.0807.0327)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AccessibleZoneTabOrder.true...AccessibleZoneTabOrder />
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MapboxVectorStylesAndLayers />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <WindowsPersistSimpleIdentifiers />
+    <WorksheetBackgroundTransparency />
+    <ZoneBackgroundTransparency />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <style-theme name='modern' />
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='Arrival or Depature' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;Avg.Depature Delay&quot;'>
+        <calculation class='tableau' formula='&quot;Avg.Depature Delay&quot;' />
+        <members>
+          <member value='&quot;Avg. Arrival Delay&quot;' />
+          <member value='&quot;Avg.Depature Delay&quot;' />
+        </members>
+      </column>
+      <column caption='Top N' datatype='integer' name='[Parameter 2]' param-domain-type='any' role='measure' type='quantitative' value='15'>
+        <calculation class='tableau' formula='15' />
+      </column>
+    </datasource>
+    <datasource caption='airlines' inline='true' name='federated.0zx4nyr16l8n9b1aoy5960mnmbft' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='airlines' name='textscan.1i6rrt10zqn6ir12g6dwj1hjgiie'>
+            <connection class='textscan' directory='D:/mohamed nabih/projects/flight-delays' filename='airlines.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='textscan.1i6rrt10zqn6ir12g6dwj1hjgiie' name='airlines.csv' table='[airlines#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='string' name='IATA_CODE' ordinal='0' />
+            <column datatype='string' name='AIRLINE' ordinal='1' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+          <relation connection='textscan.1i6rrt10zqn6ir12g6dwj1hjgiie' name='airlines.csv' table='[airlines#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='string' name='IATA_CODE' ordinal='0' />
+              <column datatype='string' name='AIRLINE' ordinal='1' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1i6rrt10zqn6ir12g6dwj1hjgiie' name='flights.csv' table='[flights#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='F1' ordinal='0' />
+              <column datatype='integer' name='Unnamed: 0' ordinal='1' />
+              <column datatype='integer' name='Unnamed: 0.1' ordinal='2' />
+              <column datatype='integer' name='YEAR' ordinal='3' />
+              <column datatype='integer' name='MONTH' ordinal='4' />
+              <column datatype='integer' name='DAY' ordinal='5' />
+              <column datatype='integer' name='DAY_OF_WEEK' ordinal='6' />
+              <column datatype='string' name='AIRLINE' ordinal='7' />
+              <column datatype='integer' name='FLIGHT_NUMBER' ordinal='8' />
+              <column datatype='string' name='TAIL_NUMBER' ordinal='9' />
+              <column datatype='string' name='ORIGIN_AIRPORT' ordinal='10' />
+              <column datatype='string' name='DESTINATION_AIRPORT' ordinal='11' />
+              <column datatype='integer' name='SCHEDULED_DEPARTURE' ordinal='12' />
+              <column datatype='real' name='DEPARTURE_TIME' ordinal='13' />
+              <column datatype='real' name='DEPARTURE_DELAY' ordinal='14' />
+              <column datatype='real' name='TAXI_OUT' ordinal='15' />
+              <column datatype='real' name='WHEELS_OFF' ordinal='16' />
+              <column datatype='real' name='SCHEDULED_TIME' ordinal='17' />
+              <column datatype='real' name='ELAPSED_TIME' ordinal='18' />
+              <column datatype='real' name='AIR_TIME' ordinal='19' />
+              <column datatype='integer' name='DISTANCE' ordinal='20' />
+              <column datatype='real' name='WHEELS_ON' ordinal='21' />
+              <column datatype='real' name='TAXI_IN' ordinal='22' />
+              <column datatype='integer' name='SCHEDULED_ARRIVAL' ordinal='23' />
+              <column datatype='real' name='ARRIVAL_TIME' ordinal='24' />
+              <column datatype='real' name='ARRIVAL_DELAY' ordinal='25' />
+              <column datatype='integer' name='DIVERTED' ordinal='26' />
+              <column datatype='integer' name='CANCELLED' ordinal='27' />
+              <column datatype='string' name='CANCELLATION_REASON' ordinal='28' />
+              <column datatype='real' name='AIR_SYSTEM_DELAY' ordinal='29' />
+              <column datatype='real' name='SECURITY_DELAY' ordinal='30' />
+              <column datatype='real' name='AIRLINE_DELAY' ordinal='31' />
+              <column datatype='real' name='LATE_AIRCRAFT_DELAY' ordinal='32' />
+              <column datatype='real' name='WEATHER_DELAY' ordinal='33' />
+              <column datatype='integer' name='num' ordinal='34' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1i6rrt10zqn6ir12g6dwj1hjgiie' name='airports.csv' table='[airports#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='string' name='IATA_CODE' ordinal='0' />
+              <column datatype='string' name='AIRPORT' ordinal='1' />
+              <column datatype='string' name='CITY' ordinal='2' />
+              <column datatype='string' name='STATE' ordinal='3' />
+              <column datatype='string' name='COUNTRY' ordinal='4' />
+              <column datatype='real' name='LATITUDE' ordinal='5' />
+              <column datatype='real' name='LONGITUDE' ordinal='6' />
+            </columns>
+          </relation>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <cols>
+          <map key='[AIRLINE (flights.csv)]' value='[flights.csv].[AIRLINE]' />
+          <map key='[AIRLINE]' value='[airlines.csv].[AIRLINE]' />
+          <map key='[AIRLINE_DELAY]' value='[flights.csv].[AIRLINE_DELAY]' />
+          <map key='[AIRPORT]' value='[airports.csv].[AIRPORT]' />
+          <map key='[AIR_SYSTEM_DELAY]' value='[flights.csv].[AIR_SYSTEM_DELAY]' />
+          <map key='[AIR_TIME]' value='[flights.csv].[AIR_TIME]' />
+          <map key='[ARRIVAL_DELAY]' value='[flights.csv].[ARRIVAL_DELAY]' />
+          <map key='[ARRIVAL_TIME]' value='[flights.csv].[ARRIVAL_TIME]' />
+          <map key='[CANCELLATION_REASON]' value='[flights.csv].[CANCELLATION_REASON]' />
+          <map key='[CANCELLED]' value='[flights.csv].[CANCELLED]' />
+          <map key='[CITY]' value='[airports.csv].[CITY]' />
+          <map key='[COUNTRY]' value='[airports.csv].[COUNTRY]' />
+          <map key='[DAY]' value='[flights.csv].[DAY]' />
+          <map key='[DAY_OF_WEEK]' value='[flights.csv].[DAY_OF_WEEK]' />
+          <map key='[DEPARTURE_DELAY]' value='[flights.csv].[DEPARTURE_DELAY]' />
+          <map key='[DEPARTURE_TIME]' value='[flights.csv].[DEPARTURE_TIME]' />
+          <map key='[DESTINATION_AIRPORT]' value='[flights.csv].[DESTINATION_AIRPORT]' />
+          <map key='[DISTANCE]' value='[flights.csv].[DISTANCE]' />
+          <map key='[DIVERTED]' value='[flights.csv].[DIVERTED]' />
+          <map key='[ELAPSED_TIME]' value='[flights.csv].[ELAPSED_TIME]' />
+          <map key='[F1]' value='[flights.csv].[F1]' />
+          <map key='[FLIGHT_NUMBER]' value='[flights.csv].[FLIGHT_NUMBER]' />
+          <map key='[IATA_CODE (airports.csv)]' value='[airports.csv].[IATA_CODE]' />
+          <map key='[IATA_CODE]' value='[airlines.csv].[IATA_CODE]' />
+          <map key='[LATE_AIRCRAFT_DELAY]' value='[flights.csv].[LATE_AIRCRAFT_DELAY]' />
+          <map key='[LATITUDE]' value='[airports.csv].[LATITUDE]' />
+          <map key='[LONGITUDE]' value='[airports.csv].[LONGITUDE]' />
+          <map key='[MONTH]' value='[flights.csv].[MONTH]' />
+          <map key='[ORIGIN_AIRPORT]' value='[flights.csv].[ORIGIN_AIRPORT]' />
+          <map key='[SCHEDULED_ARRIVAL]' value='[flights.csv].[SCHEDULED_ARRIVAL]' />
+          <map key='[SCHEDULED_DEPARTURE]' value='[flights.csv].[SCHEDULED_DEPARTURE]' />
+          <map key='[SCHEDULED_TIME]' value='[flights.csv].[SCHEDULED_TIME]' />
+          <map key='[SECURITY_DELAY]' value='[flights.csv].[SECURITY_DELAY]' />
+          <map key='[STATE]' value='[airports.csv].[STATE]' />
+          <map key='[TAIL_NUMBER]' value='[flights.csv].[TAIL_NUMBER]' />
+          <map key='[TAXI_IN]' value='[flights.csv].[TAXI_IN]' />
+          <map key='[TAXI_OUT]' value='[flights.csv].[TAXI_OUT]' />
+          <map key='[Unnamed: 0.1]' value='[flights.csv].[Unnamed: 0.1]' />
+          <map key='[Unnamed: 0]' value='[flights.csv].[Unnamed: 0]' />
+          <map key='[WEATHER_DELAY]' value='[flights.csv].[WEATHER_DELAY]' />
+          <map key='[WHEELS_OFF]' value='[flights.csv].[WHEELS_OFF]' />
+          <map key='[WHEELS_ON]' value='[flights.csv].[WHEELS_ON]' />
+          <map key='[YEAR]' value='[flights.csv].[YEAR]' />
+          <map key='[num]' value='[flights.csv].[num]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[airlines.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[airports.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>IATA_CODE</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[IATA_CODE]</local-name>
+            <parent-name>[airlines.csv]</parent-name>
+            <remote-alias>IATA_CODE</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[airlines.csv_4908A1004C6748DBA7E2CD3FE08B218F]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AIRLINE</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[AIRLINE]</local-name>
+            <parent-name>[airlines.csv]</parent-name>
+            <remote-alias>AIRLINE</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[airlines.csv_4908A1004C6748DBA7E2CD3FE08B218F]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Unnamed: 0</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Unnamed: 0]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>Unnamed: 0</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Unnamed: 0.1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Unnamed: 0.1]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>Unnamed: 0.1</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>YEAR</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[YEAR]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>YEAR</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MONTH</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[MONTH]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>MONTH</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DAY</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[DAY]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>DAY</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DAY_OF_WEEK</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[DAY_OF_WEEK]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>DAY_OF_WEEK</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AIRLINE</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[AIRLINE (flights.csv)]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>AIRLINE</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FLIGHT_NUMBER</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[FLIGHT_NUMBER]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>FLIGHT_NUMBER</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TAIL_NUMBER</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[TAIL_NUMBER]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>TAIL_NUMBER</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ORIGIN_AIRPORT</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[ORIGIN_AIRPORT]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>ORIGIN_AIRPORT</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DESTINATION_AIRPORT</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[DESTINATION_AIRPORT]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>DESTINATION_AIRPORT</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SCHEDULED_DEPARTURE</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[SCHEDULED_DEPARTURE]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>SCHEDULED_DEPARTURE</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DEPARTURE_TIME</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[DEPARTURE_TIME]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>DEPARTURE_TIME</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DEPARTURE_DELAY</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[DEPARTURE_DELAY]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>DEPARTURE_DELAY</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TAXI_OUT</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[TAXI_OUT]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>TAXI_OUT</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WHEELS_OFF</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[WHEELS_OFF]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>WHEELS_OFF</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SCHEDULED_TIME</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[SCHEDULED_TIME]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>SCHEDULED_TIME</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ELAPSED_TIME</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[ELAPSED_TIME]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>ELAPSED_TIME</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AIR_TIME</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[AIR_TIME]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>AIR_TIME</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DISTANCE</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[DISTANCE]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>DISTANCE</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WHEELS_ON</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[WHEELS_ON]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>WHEELS_ON</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TAXI_IN</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[TAXI_IN]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>TAXI_IN</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SCHEDULED_ARRIVAL</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[SCHEDULED_ARRIVAL]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>SCHEDULED_ARRIVAL</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ARRIVAL_TIME</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[ARRIVAL_TIME]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>ARRIVAL_TIME</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ARRIVAL_DELAY</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[ARRIVAL_DELAY]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>ARRIVAL_DELAY</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DIVERTED</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[DIVERTED]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>DIVERTED</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CANCELLED</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[CANCELLED]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>CANCELLED</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CANCELLATION_REASON</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[CANCELLATION_REASON]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>CANCELLATION_REASON</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AIR_SYSTEM_DELAY</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[AIR_SYSTEM_DELAY]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>AIR_SYSTEM_DELAY</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SECURITY_DELAY</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[SECURITY_DELAY]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>SECURITY_DELAY</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AIRLINE_DELAY</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[AIRLINE_DELAY]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>AIRLINE_DELAY</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>LATE_AIRCRAFT_DELAY</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[LATE_AIRCRAFT_DELAY]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>LATE_AIRCRAFT_DELAY</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WEATHER_DELAY</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[WEATHER_DELAY]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>WEATHER_DELAY</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[num]</local-name>
+            <parent-name>[flights.csv]</parent-name>
+            <remote-alias>num</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[flights.csv_1FAEF44EC89046968E3E349C233EF18C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>IATA_CODE</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[IATA_CODE (airports.csv)]</local-name>
+            <parent-name>[airports.csv]</parent-name>
+            <remote-alias>IATA_CODE</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[airports.csv_79428D1898F24DA6940EAA5EC039FA10]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AIRPORT</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[AIRPORT]</local-name>
+            <parent-name>[airports.csv]</parent-name>
+            <remote-alias>AIRPORT</remote-alias>
+            <ordinal>38</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[airports.csv_79428D1898F24DA6940EAA5EC039FA10]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CITY</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[CITY]</local-name>
+            <parent-name>[airports.csv]</parent-name>
+            <remote-alias>CITY</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[airports.csv_79428D1898F24DA6940EAA5EC039FA10]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>STATE</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[STATE]</local-name>
+            <parent-name>[airports.csv]</parent-name>
+            <remote-alias>STATE</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[airports.csv_79428D1898F24DA6940EAA5EC039FA10]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>COUNTRY</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[COUNTRY]</local-name>
+            <parent-name>[airports.csv]</parent-name>
+            <remote-alias>COUNTRY</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[airports.csv_79428D1898F24DA6940EAA5EC039FA10]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>LATITUDE</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[LATITUDE]</local-name>
+            <parent-name>[airports.csv]</parent-name>
+            <remote-alias>LATITUDE</remote-alias>
+            <ordinal>42</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[airports.csv_79428D1898F24DA6940EAA5EC039FA10]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>LONGITUDE</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[LONGITUDE]</local-name>
+            <parent-name>[airports.csv]</parent-name>
+            <remote-alias>LONGITUDE</remote-alias>
+            <ordinal>43</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[airports.csv_79428D1898F24DA6940EAA5EC039FA10]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Airline' datatype='string' name='[AIRLINE]' role='dimension' type='nominal' />
+      <column caption='Airline Delay' datatype='real' name='[AIRLINE_DELAY]' role='measure' type='quantitative' />
+      <column caption='Airport' datatype='string' name='[AIRPORT]' role='dimension' type='nominal' />
+      <column caption='Air System Delay' datatype='real' name='[AIR_SYSTEM_DELAY]' role='measure' type='quantitative' />
+      <column caption='Air Time' datatype='real' name='[AIR_TIME]' role='measure' type='quantitative' />
+      <column caption='Arrival Delay' datatype='real' name='[ARRIVAL_DELAY]' role='measure' type='quantitative' />
+      <column caption='Arrival Time' datatype='real' name='[ARRIVAL_TIME]' role='measure' type='quantitative' />
+      <column caption='Cancellation Reason' datatype='string' name='[CANCELLATION_REASON]' role='dimension' type='nominal' />
+      <column caption='Cancelled' datatype='integer' name='[CANCELLED]' role='measure' type='quantitative' />
+      <column caption='City' datatype='string' name='[CITY]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='Country' datatype='string' name='[COUNTRY]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='On-Time Arrival' datatype='integer' name='[Calculation_1026820769982754816]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF [ARRIVAL_DELAY] &gt;= -10 AND [ARRIVAL_DELAY] &lt;= 10 THEN 1 ELSE 0 END' />
+      </column>
+      <column caption='chosen field' datatype='real' name='[Calculation_824440261192314882]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='CASE [Parameters].[Parameter 1]&#13;&#10;WHEN &quot;Avg. Arrival Delay&quot; THEN AVG([ARRIVAL_DELAY])&#13;&#10;WHEN &quot;Avg.Depature Delay&quot; THEN AVG([DEPARTURE_DELAY])&#13;&#10;END' />
+      </column>
+      <column datatype='integer' name='[DAY]' role='dimension' type='quantitative' />
+      <column caption='Day Of Week' datatype='integer' name='[DAY_OF_WEEK]' role='dimension' type='quantitative' />
+      <column caption='Departure Delay' datatype='real' name='[DEPARTURE_DELAY]' role='measure' type='quantitative' />
+      <column caption='Departure Time' datatype='real' name='[DEPARTURE_TIME]' role='dimension' type='quantitative' />
+      <column caption='Destination Airport' datatype='string' name='[DESTINATION_AIRPORT]' role='dimension' type='nominal' />
+      <column caption='Distance' datatype='integer' name='[DISTANCE]' role='measure' type='quantitative' />
+      <column caption='Diverted' datatype='integer' name='[DIVERTED]' role='measure' type='quantitative' />
+      <column caption='Elapsed Time' datatype='real' name='[ELAPSED_TIME]' role='measure' type='quantitative' />
+      <column caption='Flight Number' datatype='integer' name='[FLIGHT_NUMBER]' role='dimension' type='ordinal' />
+      <column caption='IATA CODE (airports.csv)' datatype='string' name='[IATA_CODE (airports.csv)]' role='dimension' type='nominal' />
+      <column caption='Iata Code' datatype='string' name='[IATA_CODE]' role='dimension' type='nominal' />
+      <column caption='Late Aircraft Delay' datatype='real' name='[LATE_AIRCRAFT_DELAY]' role='measure' type='quantitative' />
+      <column aggregation='Avg' caption='Latitude' datatype='real' name='[LATITUDE]' role='measure' semantic-role='[Geographical].[Latitude]' type='quantitative' />
+      <column aggregation='Avg' caption='Longitude' datatype='real' name='[LONGITUDE]' role='measure' semantic-role='[Geographical].[Longitude]' type='quantitative' />
+      <column caption='Month' datatype='integer' name='[MONTH]' role='dimension' type='quantitative' />
+      <column caption='Origin Airport' datatype='string' name='[ORIGIN_AIRPORT]' role='dimension' type='nominal' />
+      <column caption='Scheduled Arrival' datatype='integer' name='[SCHEDULED_ARRIVAL]' role='measure' type='quantitative' />
+      <column caption='Scheduled Departure' datatype='integer' name='[SCHEDULED_DEPARTURE]' role='measure' type='quantitative' />
+      <column caption='Scheduled Time' datatype='real' name='[SCHEDULED_TIME]' role='measure' type='quantitative' />
+      <column caption='Security Delay' datatype='real' name='[SECURITY_DELAY]' role='measure' type='quantitative' />
+      <column caption='State' datatype='string' name='[STATE]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='Tail Number' datatype='string' name='[TAIL_NUMBER]' role='dimension' type='nominal' />
+      <column caption='Taxi In' datatype='real' name='[TAXI_IN]' role='measure' type='quantitative' />
+      <column caption='Taxi Out' datatype='real' name='[TAXI_OUT]' role='measure' type='quantitative' />
+      <column caption='Weather Delay' datatype='real' name='[WEATHER_DELAY]' role='measure' type='quantitative' />
+      <column caption='Wheels Off' datatype='real' name='[WHEELS_OFF]' role='measure' type='quantitative' />
+      <column caption='Wheels On' datatype='real' name='[WHEELS_ON]' role='measure' type='quantitative' />
+      <column caption='Year' datatype='integer' name='[YEAR]' role='dimension' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='airlines.csv' datatype='table' name='[__tableau_internal_object_id__].[airlines.csv_4908A1004C6748DBA7E2CD3FE08B218F]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='airports.csv' datatype='table' name='[__tableau_internal_object_id__].[airports.csv_79428D1898F24DA6940EAA5EC039FA10]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='flights.csv' datatype='table' name='[__tableau_internal_object_id__].[flights.csv_1FAEF44EC89046968E3E349C233EF18C]' role='measure' type='quantitative' />
+      <column-instance column='[AIRLINE]' derivation='None' name='[none:AIRLINE:nk]' pivot='key' type='nominal' />
+      <column-instance column='[AIRPORT]' derivation='None' name='[none:AIRPORT:nk]' pivot='key' type='nominal' />
+      <group name='[Airline &amp; Airport (Combined)]' name-style='unqualified' user:ui-builder='nest-group'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[AIRLINE]' />
+          <groupfilter function='level-members' level='[AIRPORT]' />
+        </groupfilter>
+      </group>
+      <group name='[Airport &amp; State (Combined)]' name-style='unqualified' user:ui-builder='nest-group'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[AIRPORT]' />
+          <groupfilter function='level-members' level='[STATE]' />
+        </groupfilter>
+      </group>
+      <group name='[Destination Airport &amp; Origin Airport (Combined)]' name-style='unqualified' user:ui-builder='nest-group'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[DESTINATION_AIRPORT]' />
+          <groupfilter function='level-members' level='[ORIGIN_AIRPORT]' />
+        </groupfilter>
+      </group>
+      <drill-paths>
+        <drill-path name='Country, State'>
+          <field>[AIRPORT]</field>
+          <field>[COUNTRY]</field>
+          <field>[STATE]</field>
+          <field>[CITY]</field>
+        </drill-path>
+      </drill-paths>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' rowDisplayCount='14' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:AIRPORT:nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;Albuquerque International Sunport&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Billings Logan International Airport&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Charleston International Airport/Charleston AFB&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Dane County Regional Airport&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Elko Regional Airport&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;General Wayne A. Downing Peoria International Airport&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Hays Regional Airport&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Juneau International Airport&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Lihue Airport&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Melbourne International Airport&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Newark Liberty International Airport&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Piedmont Triad International Airport&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Roanoke Regional Airport (Woodrum Field)&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Shreveport Regional Airport&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;The Eastern Iowa Airport&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Wichita Falls Municipal Airport/Sheppard AFB&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Aberdeen Regional Airport&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Barkley Regional Airport&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Buffalo Niagara International Airport&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Coastal Carolina Regional Airport (Craven County Regional)&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Dothan Regional Airport&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Fort Smith Regional Airport&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Greenville-Spartanburg International Airport&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Jackson Hole Airport&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;LaGuardia Airport (Marine Air Terminal)&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Manhattan Regional Airport&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Monterey Regional Airport (Monterey Peninsula Airport)&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Pago Pago International Airport (Tafuna Airport)&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Range Regional Airport (Chisholm-Hibbing Airport)&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;San Luis Obispo County Regional Airport (McChesney Field)&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;St. George Regional Airport&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Valdosta Regional Airport&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Yellowstone Regional Airport&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Bemidji Regional Airport&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Cedar City Regional Airport&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Corpus Christi International Airport&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Evansville Regional Airport&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Gainesville Regional Airport&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Guam International Airport&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Idaho Falls Regional Airport&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Jamestown Regional Airport&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Lawton-Fort Sill Regional Airport&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;McCarran International Airport&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Myrtle Beach International Airport&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Pensacola International Airport (Pensacola Gulf Coast Regional Airport)&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Reno/Tahoe International Airport&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Sarasota-Bradenton International Airport&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Tallahassee International Airport&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Waterloo Regional Airport&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;Eagle County Regional Airport&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Appleton International Airport&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Arnold Palmer Regional Airport&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Blue Grass Airport&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Cherry Capital Airport&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Delta County Airport&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Glacier Park International Airport&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Hilo International Airport&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Ketchikan International Airport&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Los Angeles International Airport&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Merle K. (Mudhole) Smith Airport&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Norfolk International Airport&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Port Columbus International Airport&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Ronald Reagan Washington National Airport&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Sloulin Field International Airport&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Tri-Cities Airport&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;William P. Hobby Airport&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Alexandria International Airport&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Birmingham-Shuttlesworth International Airport&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Charlotte Douglas International Airport&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Daytona Beach International Airport&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Elmira/Corning Regional Airport&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;George Bush Intercontinental Airport&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Hector International Airport&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Kahului Airport&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Lincoln Airport (Lincoln Municipal)&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Memphis International Airport&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Newport News/Williamsburg International Airport&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Pittsburgh International Airport&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Rochester International Airport&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Sioux Falls Regional Airport&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Theodore Francis Green State Airport&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Wiley Post-Will Rogers Memorial Airport&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Akron-Canton Regional Airport&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Bert Mooney Airport&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Central Illinois Regional Airport at Bloomington-Normal&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Cyril E. King Airport&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;East Texas Regional Airport&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Garden City Regional Airport&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Harrisburg International Airport&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;John F. Kennedy International Airport (New York International Airport)&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Lea County Regional Airport&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;McClellan-Palomar Airport&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Nantucket Memorial Airport&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Petersburg James A. Johnson Airport&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Rhinelander-Oneida County Airport&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Savannah/Hilton Head International Airport&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Tampa International Airport&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Westchester County Airport&quot;</bucket>
+            </map>
+            <map to='#9c755f'>
+              <bucket>&quot;Santa Maria Public Airport (Capt G. Allan Hancock Field)&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Baltimore-Washington International Airport&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Brownsville/South Padre Island International Airport&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;City of Colorado Springs Municipal Airport&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Dickinson Theodore Roosevelt Regional Airport&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Ford Airport&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Greater Rochester International Airport&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Ithaca Tompkins Regional Airport&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;La Crosse Regional Airport&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Mammoth Yosemite Airport&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Mobile Regional Airport&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Ontario International Airport&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Raleigh-Durham International Airport&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;San Diego International Airport (Lindbergh Field)&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;University Park Airport&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Yeager Airport&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Abilene Regional Airport&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Barnstable Municipal Airport&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Burlington International Airport&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Columbia Metropolitan Airport&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Dubuque Regional Airport&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Fort Wayne International Airport&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Huntsville International Airport&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Jackson-Evers International Airport&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Lake Charles Regional Airport&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Martha&apos;s Vineyard Airport&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Montgomery Regional Airport&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Palm Beach International Airport&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Rapid City Regional Airport&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Santa Barbara Municipal Airport (Santa Barbara Airport)&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;St. Louis International Airport at Lambert Field&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Valley International Airport&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Yuma International Airport&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Augusta Regional Airport (Bush Field)&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Bradley International Airport&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Chippewa Valley Regional Airport&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Detroit Metropolitan Airport&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Fayetteville Regional Airport&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Great Falls International Airport&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Houghton County Memorial Airport&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Kodiak Airport&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Luis Muñoz Marín International Airport&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Minot International Airport&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Northwest Florida Beaches International Airport&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Quad City International Airport&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;San Angelo Regional Airport (Mathis Field)&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Southwest Oregon Regional Airport (North Bend Municipal)&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Tyler Pounds Regional Airport&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Wrangell Airport&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Albany International Airport&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Bethel Airport&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Central Nebraska Regional Airport&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Dallas Love Field&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Easterwood Airport&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Gen. Edward Lawrence Logan International Airport&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Hartsfield-Jackson Atlanta International Airport&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;John Wayne Airport (Orange County Airport)&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Lehigh Valley International Airport&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;McGhee Tyson Airport&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Nashville International Airport&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Philadelphia International Airport&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Richmond International Airport&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Sawyer International Airport&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Ted Stevens Anchorage International Airport&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Westerly State Airport&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Asheville Regional Airport&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Bob Hope Airport (Hollywood Burbank Airport)&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Chicago Midway International Airport&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Denver International Airport&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Golden Triangle Regional Airport&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Honolulu International Airport&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Key West International Airport&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Louis Armstrong New Orleans International Airport&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Miami International Airport&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Norman Y. Mineta San José International Airport&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Portland International Airport&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Roswell International Air Center&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;South Bend International Airport (South Bend Regional)&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Tri-Cities Regional Airport&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Wilmington Airport&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Yampa Valley Airport (Yampa Valley Regional)&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Arcata Airport&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Aspen-Pitkin County Airport&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Boise Airport (Boise Air Terminal)&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Chicago O&apos;Hare International Airport&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Des Moines International Airport&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Fairbanks International Airport&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Grand Forks International Airport&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Killeen-Fort Hood Regional Airport&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Louisville International Airport (Standiford Field)&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Midland International Airport&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Northeast Florida Regional Airport (St. Augustine Airport)&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Portland International Jetport&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Sacramento International Airport&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Southwest Florida International Airport&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Tucson International Airport&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Wilmington International Airport&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Austin-Bergstrom International Airport&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Brainerd Lakes Regional Airport&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Cincinnati/Northern Kentucky International Airport&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Devils Lake Regional Airport&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Flagstaff Pulliam Airport&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Greater Binghamton Airport&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Indianapolis International Airport&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Magic Valley Regional Airport (Joslin Field)&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Missoula International Airport&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Oakland International Airport&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Rafael Hernández Airport&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;San Antonio International Airport&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Spokane International Airport&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;University of Illinois - Willard Airport&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Yakutat Airport&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Bangor International Airport&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Brunswick Golden Isles Airport&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Cleveland Hopkins International Airport&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Dillingham Airport&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Fort Lauderdale-Hollywood International Airport&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Green Bay-Austin Straubel International Airport&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Jack Brooks Regional Airport (Southeast Texas Regional)&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Lafayette Regional Airport&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Manchester-Boston Regional Airport&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Monroe Regional Airport&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Orlando International Airport&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Ralph Wien Memorial Airport&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;San Francisco International Airport&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;St. Cloud Regional Airport&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Valdez Airport&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Bishop International Airport&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Charlottesville-Albemarle Airport&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Deadhorse Airport (Prudhoe Bay Airport)&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Durango-La Plata County Airport&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Eppley Airfield&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Gerald R. Ford International Airport&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Helena Regional Airport&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Kalamazoo/Battle Creek International Airport&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Long Beach Airport (Daugherty Field)&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Mercedita Airport&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Niagara Falls International Airport&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Plattsburgh International Airport&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Rock Springs-Sweetwater County Airport&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Sioux Gateway Airport&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Toledo Express Airport&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Wilkes-Barre/Scranton International Airport&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;Gustavus Airport&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Albert J. Ellis Airport&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Bill and Hillary Clinton National Airport (Adams Field)&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Central Wisconsin Airport&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Dallas/Fort Worth International Airport&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;El Paso International Airport&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;General Mitchell International Airport&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Hattiesburg-Laurel Regional Airport&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Kona International Airport at Keahole&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Lewiston-Nez Perce County Airport&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Meadows Field&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Natrona County International Airport&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Phoenix Sky Harbor International Airport&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Rick Husband Amarillo International Airport&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Seattle-Tacoma International Airport&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Texarkana Regional Airport (Webb Field)&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Wichita Dwight D. Eisenhower National Airport (Wichita Mid-Continent Airport)&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Adak Airport&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Baton Rouge Metropolitan Airport&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Canyonlands Field&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Columbia Regional Airport&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Duluth International Airport&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Fresno Yosemite International Airport&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Gulfport-Biloxi International Airport&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Jacksonville International Airport&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Laramie Regional Airport&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;MBS International Airport&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Montrose Regional Airport&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Palm Springs International Airport&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Redding Municipal Airport&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Santa Fe Municipal Airport&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Stewart International Airport&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Waco Regional Airport&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Atlantic City International Airport&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Bozeman Yellowstone International Airport (Gallatin Field Airport)&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Chippewa County International Airport&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Destin-Fort Walton Beach Airport/Eglin AFB&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Falls International Airport&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Grand Junction Regional Airport (Walker Field)&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;King Salmon Airport&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Lubbock Preston Smith International Airport&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Minneapolis-Saint Paul International Airport&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Northwest Arkansas Regional Airport&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Pueblo Memorial Airport&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Salt Lake City International Airport&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Southwest Georgia Regional Airport&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Tulsa International Airport&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Worcester Regional Airport&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Alpena County Regional Airport&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Bismarck Municipal Airport&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Chattanooga Metropolitan Airport (Lovell Field)&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Del Norte County Airport (Jack McNamara Field)&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Erie International Airport&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Gillette-Campbell County Airport&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Henry E. Rohlsen Airport&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Kansas City International Airport&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Long Island MacArthur Airport&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Meridian Regional Airport&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Nome Airport&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Pocatello Regional Airport&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Rogue Valley International Airport&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Sitka Rocky Gutierrez Airport&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Trenton Mercer Airport&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Will Rogers World Airport&quot;</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>&quot;Joplin Regional Airport&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Abraham Lincoln Capital Airport&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Bellingham International Airport&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Capital Region International Airport ( Lansing Capital City)&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Columbus Metropolitan Airport&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Eugene Airport (Mahlon Sweet Field)&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Friedman Memorial Airport&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Gunnison-Crested Butte Regional Airport&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;James M. Cox Dayton International Airport&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Laredo International Airport&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;McAllen-Miller International Airport (McAllen Miller International)&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Muskegon County Airport&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Pellston Regional Airport of Emmet County&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Redmond Municipal Airport (Roberts Field)&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Springfield-Branson National Airport&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Syracuse Hancock International Airport&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Washington Dulles International Airport&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:AIRLINE:nk]' type='palette'>
+            <map to='#1f77b4'>
+              <bucket>&quot;Alaska Airlines Inc.&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;Delta Air Lines Inc.&quot;</bucket>
+            </map>
+            <map to='#7f7f7f'>
+              <bucket>%null%</bucket>
+            </map>
+            <map to='#8c564b'>
+              <bucket>&quot;Spirit Air Lines&quot;</bucket>
+            </map>
+            <map to='#9467bd'>
+              <bucket>&quot;Skywest Airlines Inc.&quot;</bucket>
+            </map>
+            <map to='#98df8a'>
+              <bucket>&quot;Frontier Airlines Inc.&quot;</bucket>
+            </map>
+            <map to='#aec7e8'>
+              <bucket>&quot;American Airlines Inc.&quot;</bucket>
+            </map>
+            <map to='#c49c94'>
+              <bucket>&quot;United Air Lines Inc.&quot;</bucket>
+            </map>
+            <map to='#c5b0d5'>
+              <bucket>&quot;Southwest Airlines Co.&quot;</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>&quot;Hawaiian Airlines Inc.&quot;</bucket>
+            </map>
+            <map to='#e377c2'>
+              <bucket>&quot;US Airways Inc.&quot;</bucket>
+            </map>
+            <map to='#f7b6d2'>
+              <bucket>&quot;Virgin America&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;American Eagle Airlines Inc.&quot;</bucket>
+            </map>
+            <map to='#ff9896'>
+              <bucket>&quot;JetBlue Airways&quot;</bucket>
+            </map>
+            <map to='#ffbb78'>
+              <bucket>&quot;Atlantic Southeast Airlines&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Arrival or Depature' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;Avg.Depature Delay&quot;'>
+          <calculation class='tableau' formula='&quot;Avg.Depature Delay&quot;' />
+        </column>
+      </datasource-dependencies>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='airlines.csv' id='airlines.csv_4908A1004C6748DBA7E2CD3FE08B218F'>
+            <properties context=''>
+              <relation connection='textscan.1i6rrt10zqn6ir12g6dwj1hjgiie' name='airlines.csv' table='[airlines#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='string' name='IATA_CODE' ordinal='0' />
+                  <column datatype='string' name='AIRLINE' ordinal='1' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='airports.csv' id='airports.csv_79428D1898F24DA6940EAA5EC039FA10'>
+            <properties context=''>
+              <relation connection='textscan.1i6rrt10zqn6ir12g6dwj1hjgiie' name='airports.csv' table='[airports#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='string' name='IATA_CODE' ordinal='0' />
+                  <column datatype='string' name='AIRPORT' ordinal='1' />
+                  <column datatype='string' name='CITY' ordinal='2' />
+                  <column datatype='string' name='STATE' ordinal='3' />
+                  <column datatype='string' name='COUNTRY' ordinal='4' />
+                  <column datatype='real' name='LATITUDE' ordinal='5' />
+                  <column datatype='real' name='LONGITUDE' ordinal='6' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='flights.csv' id='flights.csv_1FAEF44EC89046968E3E349C233EF18C'>
+            <properties context=''>
+              <relation connection='textscan.1i6rrt10zqn6ir12g6dwj1hjgiie' name='flights.csv' table='[flights#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='F1' ordinal='0' />
+                  <column datatype='integer' name='Unnamed: 0' ordinal='1' />
+                  <column datatype='integer' name='Unnamed: 0.1' ordinal='2' />
+                  <column datatype='integer' name='YEAR' ordinal='3' />
+                  <column datatype='integer' name='MONTH' ordinal='4' />
+                  <column datatype='integer' name='DAY' ordinal='5' />
+                  <column datatype='integer' name='DAY_OF_WEEK' ordinal='6' />
+                  <column datatype='string' name='AIRLINE' ordinal='7' />
+                  <column datatype='integer' name='FLIGHT_NUMBER' ordinal='8' />
+                  <column datatype='string' name='TAIL_NUMBER' ordinal='9' />
+                  <column datatype='string' name='ORIGIN_AIRPORT' ordinal='10' />
+                  <column datatype='string' name='DESTINATION_AIRPORT' ordinal='11' />
+                  <column datatype='integer' name='SCHEDULED_DEPARTURE' ordinal='12' />
+                  <column datatype='real' name='DEPARTURE_TIME' ordinal='13' />
+                  <column datatype='real' name='DEPARTURE_DELAY' ordinal='14' />
+                  <column datatype='real' name='TAXI_OUT' ordinal='15' />
+                  <column datatype='real' name='WHEELS_OFF' ordinal='16' />
+                  <column datatype='real' name='SCHEDULED_TIME' ordinal='17' />
+                  <column datatype='real' name='ELAPSED_TIME' ordinal='18' />
+                  <column datatype='real' name='AIR_TIME' ordinal='19' />
+                  <column datatype='integer' name='DISTANCE' ordinal='20' />
+                  <column datatype='real' name='WHEELS_ON' ordinal='21' />
+                  <column datatype='real' name='TAXI_IN' ordinal='22' />
+                  <column datatype='integer' name='SCHEDULED_ARRIVAL' ordinal='23' />
+                  <column datatype='real' name='ARRIVAL_TIME' ordinal='24' />
+                  <column datatype='real' name='ARRIVAL_DELAY' ordinal='25' />
+                  <column datatype='integer' name='DIVERTED' ordinal='26' />
+                  <column datatype='integer' name='CANCELLED' ordinal='27' />
+                  <column datatype='string' name='CANCELLATION_REASON' ordinal='28' />
+                  <column datatype='real' name='AIR_SYSTEM_DELAY' ordinal='29' />
+                  <column datatype='real' name='SECURITY_DELAY' ordinal='30' />
+                  <column datatype='real' name='AIRLINE_DELAY' ordinal='31' />
+                  <column datatype='real' name='LATE_AIRCRAFT_DELAY' ordinal='32' />
+                  <column datatype='real' name='WEATHER_DELAY' ordinal='33' />
+                  <column datatype='integer' name='num' ordinal='34' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[ORIGIN_AIRPORT]' />
+              <expression op='[IATA_CODE (airports.csv)]' />
+            </expression>
+            <first-end-point object-id='flights.csv_1FAEF44EC89046968E3E349C233EF18C' />
+            <second-end-point object-id='airports.csv_79428D1898F24DA6940EAA5EC039FA10' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[IATA_CODE]' />
+              <expression op='[AIRLINE (flights.csv)]' />
+            </expression>
+            <first-end-point object-id='airlines.csv_4908A1004C6748DBA7E2CD3FE08B218F' />
+            <second-end-point object-id='flights.csv_1FAEF44EC89046968E3E349C233EF18C' />
+          </relationship>
+        </relationships>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true'>أي شركات الطيران تعاني من أعلى نسب تأخير؟</run>
+            <run fontname='Benton Sans Book'>Æ </run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='airlines' name='federated.0zx4nyr16l8n9b1aoy5960mnmbft' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Arrival or Depature' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;Avg.Depature Delay&quot;'>
+              <calculation class='tableau' formula='&quot;Avg.Depature Delay&quot;' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0zx4nyr16l8n9b1aoy5960mnmbft'>
+            <column caption='Airline' datatype='string' name='[AIRLINE]' role='dimension' type='nominal' />
+            <column caption='Arrival Delay' datatype='real' name='[ARRIVAL_DELAY]' role='measure' type='quantitative' />
+            <column caption='chosen field' datatype='real' name='[Calculation_824440261192314882]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='CASE [Parameters].[Parameter 1]&#13;&#10;WHEN &quot;Avg. Arrival Delay&quot; THEN AVG([ARRIVAL_DELAY])&#13;&#10;WHEN &quot;Avg.Depature Delay&quot; THEN AVG([DEPARTURE_DELAY])&#13;&#10;END' />
+            </column>
+            <column caption='Departure Delay' datatype='real' name='[DEPARTURE_DELAY]' role='measure' type='quantitative' />
+            <column-instance column='[ARRIVAL_DELAY]' derivation='Avg' name='[avg:ARRIVAL_DELAY:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[AIRLINE]' derivation='None' name='[none:AIRLINE:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_824440261192314882]' derivation='User' name='[usr:Calculation_824440261192314882:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[usr:Calculation_824440261192314882:qk]' included-values='in-range' />
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRLINE:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[usr:Calculation_824440261192314882:qk]' shelf='columns' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[usr:Calculation_824440261192314882:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='height' field='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRLINE:nk]' value='39' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRLINE:nk]' value='114' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#e6ecf0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='5' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRLINE:nk]' />
+              <text column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[avg:ARRIVAL_DELAY:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[usr:Calculation_824440261192314882:qk]</rows>
+        <cols>[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRLINE:nk]</cols>
+      </table>
+      <simple-id uuid='{1B5070A7-49E5-4BC3-A10F-19018C713AF5}' />
+    </worksheet>
+    <worksheet name='Sheet 2'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#000000'>ما هي المطارات الأكثر تأخيرًا في المغادرة أو الوصول؟</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book'>Æ </run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='airlines' name='federated.0zx4nyr16l8n9b1aoy5960mnmbft' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Arrival or Depature' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;Avg.Depature Delay&quot;'>
+              <calculation class='tableau' formula='&quot;Avg.Depature Delay&quot;' />
+            </column>
+            <column caption='Top N' datatype='integer' name='[Parameter 2]' param-domain-type='any' role='measure' type='quantitative' value='15'>
+              <calculation class='tableau' formula='15' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0zx4nyr16l8n9b1aoy5960mnmbft'>
+            <column caption='Airport' datatype='string' name='[AIRPORT]' role='dimension' type='nominal' />
+            <column caption='Arrival Delay' datatype='real' name='[ARRIVAL_DELAY]' role='measure' type='quantitative' />
+            <column caption='chosen field' datatype='real' name='[Calculation_824440261192314882]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='CASE [Parameters].[Parameter 1]&#13;&#10;WHEN &quot;Avg. Arrival Delay&quot; THEN AVG([ARRIVAL_DELAY])&#13;&#10;WHEN &quot;Avg.Depature Delay&quot; THEN AVG([DEPARTURE_DELAY])&#13;&#10;END' />
+            </column>
+            <column caption='Departure Delay' datatype='real' name='[DEPARTURE_DELAY]' role='measure' type='quantitative' />
+            <column-instance column='[ARRIVAL_DELAY]' derivation='Avg' name='[avg:ARRIVAL_DELAY:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[AIRPORT]' derivation='None' name='[none:AIRPORT:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_824440261192314882]' derivation='User' name='[usr:Calculation_824440261192314882:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRPORT:nk]'>
+            <groupfilter count='[Parameters].[Parameter 2]' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='AVG([ARRIVAL_DELAY])' function='order' user:ui-marker='order'>
+                <groupfilter function='level-members' level='[none:AIRPORT:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRPORT:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;Guam International Airport&quot;</bucket>
+              <bucket>&quot;Eagle County Regional Airport&quot;</bucket>
+              <bucket>&quot;Houghton County Memorial Airport&quot;</bucket>
+              <bucket>&quot;Yampa Valley Airport (Yampa Valley Regional)&quot;</bucket>
+              <bucket>&quot;Joplin Regional Airport&quot;</bucket>
+              <bucket>&quot;Aberdeen Regional Airport&quot;</bucket>
+              <bucket>&quot;Gustavus Airport&quot;</bucket>
+              <bucket>&quot;Santa Maria Public Airport (Capt G. Allan Hancock Field)&quot;</bucket>
+              <bucket>&quot;Durango-La Plata County Airport&quot;</bucket>
+              <bucket>&quot;Adak Airport&quot;</bucket>
+              <bucket>&quot;Dickinson Theodore Roosevelt Regional Airport&quot;</bucket>
+              <bucket>&quot;Mammoth Yosemite Airport&quot;</bucket>
+              <bucket>&quot;Rhinelander-Oneida County Airport&quot;</bucket>
+              <bucket>&quot;Northeast Florida Regional Airport (St. Augustine Airport)&quot;</bucket>
+              <bucket>&quot;Gunnison-Crested Butte Regional Airport&quot;</bucket>
+              <bucket>%all%</bucket>
+            </dictionary>
+          </manual-sort>
+          <filter class='quantitative' column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[usr:Calculation_824440261192314882:qk]' included-values='in-range' />
+          <slices>
+            <column>[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRPORT:nk]</column>
+            <column>[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[usr:Calculation_824440261192314882:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[usr:Calculation_824440261192314882:qk]' field-type='quantitative' max='51.764903354395273' min='1.3960911731110088' range-type='fixed' scope='rows' type='space' />
+            <format attr='tick-color' value='#00000000' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='color' data-class='subtotal' value='#ffffff' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='band-color' scope='rows' value='#ffffff' />
+            <format attr='background-color' value='#efebe8' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='font-weight' scope='rows' value='bold' />
+            <format attr='text-decoration' scope='rows' value='none' />
+            <format attr='color' value='#ffffff' />
+            <format attr='color' scope='rows' value='#000000' />
+            <format attr='color' scope='cols' value='#000000' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[avg:ARRIVAL_DELAY:qk]' palette='brown_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='band-color' scope='rows' value='#ffffff' />
+            <format attr='background-color' value='#f5f1f0' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='band-size' scope='rows' value='1' />
+            <format attr='background-color' value='#efebe8' />
+          </style-rule>
+          <style-rule element='dropline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='stroke-size' scope='cols' value='1' />
+            <format attr='line-visibility' scope='cols' value='on' />
+            <format attr='line-pattern-only' scope='cols' value='solid' />
+            <format attr='stroke-size' scope='rows' value='1' />
+            <format attr='line-visibility' scope='rows' value='on' />
+            <format attr='line-pattern-only' scope='rows' value='solid' />
+            <format attr='stroke-color' scope='rows' value='#f9a655' />
+            <format attr='stroke-color' scope='cols' value='#ffbe7d' />
+          </style-rule>
+          <style-rule element='header-div'>
+            <format attr='line-pattern-only' scope='cols' value='solid' />
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+          <style-rule element='title'>
+            <format attr='color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[avg:ARRIVAL_DELAY:qk]' />
+              <text column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[avg:ARRIVAL_DELAY:qk]' />
+              <lod column='[Parameters].[Parameter 1]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='trendline'>
+                <format attr='stroke-size' value='0' />
+                <format attr='line-visibility' value='off' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[usr:Calculation_824440261192314882:qk]</rows>
+        <cols>[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRPORT:nk]</cols>
+      </table>
+      <simple-id uuid='{5F3C07A9-C2F8-4F0E-95C0-3879429AFB57}' />
+    </worksheet>
+    <worksheet name='Sheet 3'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#000000' fontname='Arial'>هل هناك مدن أو ولايات معينة تعاني من تأخيرات أكثر؟</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book'>Æ </run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='airlines' name='federated.0zx4nyr16l8n9b1aoy5960mnmbft' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0zx4nyr16l8n9b1aoy5960mnmbft'>
+            <column caption='Arrival Delay' datatype='real' name='[ARRIVAL_DELAY]' role='measure' type='quantitative' />
+            <column caption='City' datatype='string' name='[CITY]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column caption='Country' datatype='string' name='[COUNTRY]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column caption='State' datatype='string' name='[STATE]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column-instance column='[ARRIVAL_DELAY]' derivation='Avg' name='[avg:ARRIVAL_DELAY:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[CITY]' derivation='None' name='[none:CITY:nk]' pivot='key' type='nominal' />
+            <column-instance column='[COUNTRY]' derivation='None' name='[none:COUNTRY:nk]' pivot='key' type='nominal' />
+            <column-instance column='[STATE]' derivation='None' name='[none:STATE:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:CITY:nk]'>
+            <groupfilter count='30' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='AVG([ARRIVAL_DELAY])' function='order' user:ui-marker='order'>
+                <groupfilter function='level-members' level='[none:CITY:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:CITY:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[Longitude (generated)]' field-type='quantitative' max='-2031366.1033524796' min='-20953520.389832035' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[Latitude (generated)]' field-type='quantitative' max='17031092.157599159' min='-3854075.3011905123' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[avg:ARRIVAL_DELAY:qk]' palette='red_green_diverging_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='b01002_001e' value='false' />
+            <format attr='enabled' id='b01002_002e' value='false' />
+            <format attr='enabled' id='b01002_003e' value='false' />
+            <format attr='enabled' id='dp02_0001e' value='false' />
+            <format attr='enabled' id='dp02_0015e' value='false' />
+            <format attr='enabled' id='dp03_0027e_plus_dp03_0029e' value='false' />
+            <format attr='enabled' id='dp03_0028e' value='false' />
+            <format attr='enabled' id='dp03_0030e_plus_dp03_0031e' value='false' />
+            <format attr='enabled' id='dp03_0062e' value='false' />
+            <format attr='enabled' id='dp03_0088e' value='false' />
+            <format attr='enabled' id='dp04_0001e' value='false' />
+            <format attr='enabled' id='dp04_0046e' value='false' />
+            <format attr='enabled' id='dp04_0047e' value='false' />
+            <format attr='enabled' id='dp04_0089e' value='false' />
+            <format attr='enabled' id='dp05_0001e' value='false' />
+            <format attr='enabled' id='dp05_0002e_div_dp05_0003e' value='false' />
+            <format attr='enabled' id='dp05_0032e' value='false' />
+            <format attr='enabled' id='dp05_0033e' value='false' />
+            <format attr='enabled' id='dp05_0034e' value='false' />
+            <format attr='enabled' id='dp05_0039e' value='false' />
+            <format attr='enabled' id='dp05_0047e' value='false' />
+            <format attr='enabled' id='dp05_0053e' value='false' />
+            <format attr='enabled' id='dp05_0066e' value='false' />
+            <format attr='enabled' id='dp05_0077e' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0' />
+            <format attr='map-style' value='streets' />
+          </style-rule>
+          <style-rule element='map-data-layer'>
+            <format attr='palette' value='tableau-map-blue-green-light' />
+            <format attr='geo-area-type' value='State' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[avg:ARRIVAL_DELAY:qk]' />
+              <size column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[avg:ARRIVAL_DELAY:qk]' />
+              <text column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:CITY:nk]' />
+              <text column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[avg:ARRIVAL_DELAY:qk]' />
+              <lod column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:COUNTRY:nk]' />
+              <lod column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:STATE:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-transparency' value='255' />
+                <format attr='has-stroke' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[Latitude (generated)]</rows>
+        <cols>[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{56526F5A-1D29-43C1-9341-19BD0E999ED5}' />
+    </worksheet>
+    <worksheet name='Sheet 4'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#000000' fontname='Arial' fontsize='12'>هل هناك علاقة بين شركة الطيران ومعدل إلغاء الرحلات؟</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='airlines' name='federated.0zx4nyr16l8n9b1aoy5960mnmbft' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0zx4nyr16l8n9b1aoy5960mnmbft'>
+            <column caption='Airline' datatype='string' name='[AIRLINE]' role='dimension' type='nominal' />
+            <column caption='Cancelled' datatype='integer' name='[CANCELLED]' role='measure' type='quantitative' />
+            <column-instance column='[CANCELLED]' derivation='Attribute' name='[attr:CANCELLED:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[CANCELLED]' derivation='Count' name='[cnt:CANCELLED:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[AIRLINE]' derivation='None' name='[none:AIRLINE:nk]' pivot='key' type='nominal' />
+            <column-instance column='[CANCELLED]' derivation='None' name='[none:CANCELLED:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[attr:CANCELLED:qk]' included-values='in-range'>
+            <min>1</min>
+            <max>1</max>
+          </filter>
+          <filter class='quantitative' column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:CANCELLED:qk]' included-values='in-range'>
+            <min>1</min>
+            <max>1</max>
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRLINE:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[cnt:CANCELLED:qk]' shelf='columns' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:CANCELLED:qk]</column>
+            <column>[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[attr:CANCELLED:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='table'>
+            <format attr='background-color' value='#e6ecf0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRLINE:nk]' />
+              <text column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[cnt:CANCELLED:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[cnt:CANCELLED:qk]</rows>
+        <cols>[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRLINE:nk]</cols>
+      </table>
+      <simple-id uuid='{89527E8B-1972-496B-92FC-7133950D8108}' />
+    </worksheet>
+    <worksheet name='Sheet 5'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true'>ما هي شركات الطيران التي تقدم خدمات في معظم المطارات ؟</run>
+            <run fontname='Benton Sans Book'>Æ </run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='airlines' name='federated.0zx4nyr16l8n9b1aoy5960mnmbft' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0zx4nyr16l8n9b1aoy5960mnmbft'>
+            <column caption='Airline' datatype='string' name='[AIRLINE]' role='dimension' type='nominal' />
+            <column caption='Airport' datatype='string' name='[AIRPORT]' role='dimension' type='nominal' />
+            <column-instance column='[AIRPORT]' derivation='CountD' name='[ctd:AIRPORT:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[AIRLINE]' derivation='None' name='[none:AIRLINE:nk]' pivot='key' type='nominal' />
+            <column-instance column='[AIRPORT]' derivation='None' name='[none:AIRPORT:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRLINE:nk]' kind='hide'>
+            <groupfilter function='except' user:ui-domain='relevant' user:ui-enumeration='exclusive' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:AIRLINE:nk]' />
+              <groupfilter function='member' level='[none:AIRLINE:nk]' member='%null%' />
+            </groupfilter>
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRLINE:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[ctd:AIRPORT:qk]' shelf='columns' />
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='table'>
+            <format attr='background-color' value='#dfedeb' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRLINE:nk]' />
+              <text column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[ctd:AIRPORT:qk]' />
+              <lod column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRPORT:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[ctd:AIRPORT:qk]</rows>
+        <cols>[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRLINE:nk]</cols>
+      </table>
+      <simple-id uuid='{D9F885F6-5C31-4CBE-91F4-BE43A505B746}' />
+    </worksheet>
+    <worksheet name='Sheet 6'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontsize='12'>اكتر مطارات بتطلع رحلات </run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='airlines' name='federated.0zx4nyr16l8n9b1aoy5960mnmbft' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0zx4nyr16l8n9b1aoy5960mnmbft'>
+            <column datatype='string' name='[AIRLINE (flights.csv)]' role='dimension' type='nominal' />
+            <column caption='Airline' datatype='string' name='[AIRLINE]' role='dimension' type='nominal' />
+            <column-instance column='[num]' derivation='Count' name='[cnt:num:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[AIRLINE (flights.csv)]' derivation='None' name='[none:AIRLINE (flights.csv):nk]' pivot='key' type='nominal' />
+            <column-instance column='[AIRLINE]' derivation='None' name='[none:AIRLINE:nk]' pivot='key' type='nominal' />
+            <column datatype='integer' name='[num]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRLINE (flights.csv):nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[cnt:num:qk]' shelf='rows' />
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRLINE:nk]' />
+              <text column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[cnt:num:qk]' />
+              <text column='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRLINE:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRLINE (flights.csv):nk]</rows>
+        <cols>[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[cnt:num:qk]</cols>
+      </table>
+      <simple-id uuid='{3FEE27C0-3571-4174-998F-66B3FDB773A0}' />
+    </worksheet>
+    <worksheet name='Sheet 7'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='airlines' name='federated.0zx4nyr16l8n9b1aoy5960mnmbft' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0zx4nyr16l8n9b1aoy5960mnmbft'>
+            <column caption='Airline' datatype='string' name='[AIRLINE]' role='dimension' type='nominal' />
+            <column caption='Arrival Delay' datatype='real' name='[ARRIVAL_DELAY]' role='measure' type='quantitative' />
+            <column caption='On-Time Arrival' datatype='integer' name='[Calculation_1026820769982754816]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF [ARRIVAL_DELAY] &gt;= -10 AND [ARRIVAL_DELAY] &lt;= 10 THEN 1 ELSE 0 END' />
+            </column>
+            <column-instance column='[ARRIVAL_DELAY]' derivation='Count' name='[cnt:ARRIVAL_DELAY:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[AIRLINE]' derivation='None' name='[none:AIRLINE:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1026820769982754816]' derivation='Sum' name='[sum:Calculation_1026820769982754816:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[sum:Calculation_1026820769982754816:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[cnt:ARRIVAL_DELAY:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>([federated.0zx4nyr16l8n9b1aoy5960mnmbft].[sum:Calculation_1026820769982754816:qk] + [federated.0zx4nyr16l8n9b1aoy5960mnmbft].[cnt:ARRIVAL_DELAY:qk])</rows>
+        <cols>[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRLINE:nk]</cols>
+      </table>
+      <simple-id uuid='{4C3E34FA-7178-4750-8CBA-4BEAC369DDB7}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='Dashboard 1'>
+      <style />
+      <size maxheight='700' maxwidth='1400' minheight='700' minwidth='1400' sizing-mode='fixed' />
+      <datasources>
+        <datasource name='Parameters' />
+      </datasources>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Arrival or Depature' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;Avg.Depature Delay&quot;'>
+          <calculation class='tableau' formula='&quot;Avg.Depature Delay&quot;' />
+          <members>
+            <member value='&quot;Avg. Arrival Delay&quot;' />
+            <member value='&quot;Avg.Depature Delay&quot;' />
+          </members>
+        </column>
+        <column caption='Top N' datatype='integer' name='[Parameter 2]' param-domain-type='any' role='measure' type='quantitative' value='15'>
+          <calculation class='tableau' formula='15' />
+        </column>
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='97714' id='7' param='horz' type-v2='layout-flow' w='98858' x='571' y='1143'>
+            <zone h='97714' id='5' type-v2='layout-basic' w='87429' x='571' y='1143'>
+              <zone h='97714' id='3' name='Sheet 2' w='44786' x='571' y='1143'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='97714' id='11' name='Sheet 3' w='42643' x='45357' y='1143'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='97714' id='6' is-fixed='true' param='vert' type-v2='layout-flow' w='11429' x='88000' y='1143'>
+              <zone h='8143' id='8' name='Sheet 2' pane-specification-id='3' param='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[avg:ARRIVAL_DELAY:qk]' type-v2='color' w='11429' x='88000' y='1143'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='6857' id='9' mode='compact' param='[Parameters].[Parameter 1]' type-v2='paramctrl' w='11429' x='88000' y='9286'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='6857' id='10' mode='type_in' param='[Parameters].[Parameter 2]' type-v2='paramctrl' w='11429' x='88000' y='16143'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='17429' id='12' name='Sheet 3' pane-specification-id='0' param='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[avg:ARRIVAL_DELAY:qk]' type-v2='size' w='11429' x='88000' y='23000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone forceUpdate='true' h='5429' id='13' type-v2='text' w='19571' x='35357' y='-714'>
+          <formatted-text>
+            <run bold='true' fontsize='16'>تحليل أداء المطارات والوجهات</run>
+            <run bold='true' fontcolor='#ffffff' fontsize='16'>j</run>
+          </formatted-text>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='950' minheight='950' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='19' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97714' id='18' param='vert' type-v2='layout-flow' w='98858' x='571' y='1143'>
+                <zone forceUpdate='true' h='5429' id='13' type-v2='text' w='19571' x='35357' y='-714'>
+                  <formatted-text>
+                    <run bold='true' fontsize='16'>تحليل أداء المطارات والوجهات</run>
+                    <run bold='true' fontcolor='#ffffff' fontsize='16'>j</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='97714' id='3' is-fixed='true' name='Sheet 2' w='44786' x='571' y='1143'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8143' id='8' name='Sheet 2' pane-specification-id='3' param='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[avg:ARRIVAL_DELAY:qk]' type-v2='color' w='11429' x='88000' y='1143'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='97714' id='11' is-fixed='true' name='Sheet 3' w='42643' x='45357' y='1143'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='17429' id='12' name='Sheet 3' pane-specification-id='0' param='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[avg:ARRIVAL_DELAY:qk]' type-v2='size' w='11429' x='88000' y='23000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='6857' id='9' mode='compact' param='[Parameters].[Parameter 1]' type-v2='paramctrl' w='11429' x='88000' y='9286'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='6857' id='10' mode='type_in' param='[Parameters].[Parameter 2]' type-v2='paramctrl' w='11429' x='88000' y='16143'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{1CC281D2-8B69-483B-9DC1-78E2CDF541C3}' />
+    </dashboard>
+    <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='Dashboard 2'>
+      <style />
+      <size maxheight='700' maxwidth='1300' minheight='700' minwidth='1300' sizing-mode='fixed' />
+      <datasources>
+        <datasource name='Parameters' />
+      </datasources>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Arrival or Depature' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;Avg.Depature Delay&quot;'>
+          <calculation class='tableau' formula='&quot;Avg.Depature Delay&quot;' />
+          <members>
+            <member value='&quot;Avg. Arrival Delay&quot;' />
+            <member value='&quot;Avg.Depature Delay&quot;' />
+          </members>
+        </column>
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='97714' id='19' param='vert' type-v2='layout-flow' w='98770' x='615' y='1143'>
+            <zone h='97714' id='17' param='vert' type-v2='layout-flow' w='98770' x='615' y='1143'>
+              <zone h='97714' id='8' param='horz' type-v2='layout-flow' w='98770' x='615' y='1143'>
+                <zone h='97714' id='3' param='horz' type-v2='layout-flow' w='86462' x='615' y='1143'>
+                  <zone h='97714' id='5' param='horz' type-v2='layout-flow' w='86462' x='615' y='1143' />
+                </zone>
+                <zone fixed-size='160' h='97714' id='7' is-fixed='true' param='vert' type-v2='layout-flow' w='12308' x='87077' y='1143'>
+                  <zone h='43143' id='21' name='Sheet 1' pane-specification-id='5' param='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRLINE:nk]' type-v2='color' w='12308' x='87077' y='1143'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='6857' id='22' mode='compact' param='[Parameters].[Parameter 1]' type-v2='paramctrl' w='12308' x='87077' y='44286'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='46125' id='10' name='Sheet 4' w='47231' x='1000' y='52750'>
+          <layout-cache cell-count-w='14' minheight='261' non-cell-size-w='51' type-h='scalable' type-w='cell' />
+        </zone>
+        <zone h='58250' id='11' name='Sheet 5' w='48692' x='48538' y='40625'>
+          <layout-cache cell-count-w='14' minheight='256' non-cell-size-w='33' type-h='scalable' type-w='cell' />
+        </zone>
+        <zone h='25571' id='12' is-centered='0' is-scaled='1' param='C:/Users/eid46/Desktop/OIP.jfif' type-v2='bitmap' w='23615' x='53692' y='11143' />
+        <zone h='10143' id='13' type-v2='text' w='18846' x='56000' y='1143'>
+          <formatted-text>
+            <run bold='true' fontsize='20'>تحليل أداء شركات الطيران</run>
+          </formatted-text>
+        </zone>
+        <zone h='50000' id='20' name='Sheet 1' w='47154' x='1077' y='1571'>
+          <layout-cache cell-count-w='14' minheight='186' non-cell-size-w='39' type-h='scalable' type-w='cell' />
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1200' minheight='1200' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='15' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97714' id='14' param='vert' type-v2='layout-flow' w='98770' x='615' y='1143'>
+                <zone h='10143' id='13' type-v2='text' w='18846' x='56000' y='1143'>
+                  <formatted-text>
+                    <run bold='true' fontsize='20'>تحليل أداء شركات الطيران</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='179' h='25571' id='12' is-centered='0' is-fixed='true' is-scaled='1' param='C:/Users/eid46/Desktop/OIP.jfif' type-v2='bitmap' w='23615' x='53692' y='11143'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='58250' id='11' is-fixed='true' name='Sheet 5' w='48692' x='48538' y='40625'>
+                  <layout-cache cell-count-w='14' minheight='256' non-cell-size-w='33' type-h='scalable' type-w='cell' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='46125' id='10' is-fixed='true' name='Sheet 4' w='47231' x='1000' y='52750'>
+                  <layout-cache cell-count-w='14' minheight='261' non-cell-size-w='51' type-h='scalable' type-w='cell' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{6F1C0AA8-4570-43F2-A941-53FD41F74ED4}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' name='Sheet 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='3' param='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[avg:ARRIVAL_DELAY:qk]' type='color' />
+            <card mode='compact' param='[Parameters].[Parameter 1]' type='parameter' />
+            <card mode='type_in' param='[Parameters].[Parameter 2]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{C78E4E1F-70EE-4149-A4B5-145515C48AFF}' />
+    </window>
+    <window class='worksheet' name='Sheet 3'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[avg:ARRIVAL_DELAY:qk]' type='size' />
+            <card pane-specification-id='0' param='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[avg:ARRIVAL_DELAY:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{BFA26EE4-6FE4-48C7-A4E1-939D3BD56377}' />
+    </window>
+    <window class='worksheet' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='5' param='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRLINE:nk]' type='color' />
+            <card mode='compact' param='[Parameters].[Parameter 1]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{A661E9F9-DEFD-489D-A4EF-58B7B69C5E7E}' />
+    </window>
+    <window class='worksheet' name='Sheet 4'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRLINE:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{26856A2F-C880-4E0F-BA5C-4A5863B038BD}' />
+    </window>
+    <window class='worksheet' name='Sheet 5'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='3' param='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRLINE:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{0CC2276C-CAC5-4516-BD94-51BC693A989C}' />
+    </window>
+    <window class='dashboard' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='Sheet 2'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 3'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='3' />
+      <simple-id uuid='{FB20E263-8008-4FC2-AFA2-35D11D487E24}' />
+    </window>
+    <window class='dashboard' name='Dashboard 2'>
+      <viewpoints>
+        <viewpoint name='Sheet 1'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 4'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 5'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='20' />
+      <simple-id uuid='{FE057E7D-556F-4999-9C01-EFD07FD7FBCB}' />
+    </window>
+    <window class='worksheet' name='Sheet 6'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[federated.0zx4nyr16l8n9b1aoy5960mnmbft].[none:AIRLINE:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{F792A583-9573-4B5A-B323-33963BD16CB8}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Sheet 7'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='compact' param='[Parameters].[Parameter 1]' type='parameter' />
+            <card mode='type_in' param='[Parameters].[Parameter 2]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{2741A0C3-7674-4EEC-8228-EAD0F32AEE7A}' />
+    </window>
+  </windows>
+</workbook>
